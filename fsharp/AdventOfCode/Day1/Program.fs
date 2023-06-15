@@ -2,8 +2,6 @@
 
 System.Environment.CurrentDirectory <- __SOURCE_DIRECTORY__
 
-let data2 = ["1"; "3"; ""; "44"; "3"; ""; "9"; "12"]
-
 let splitSeq list = 
     let rec splitSeqRec acc list = 
         match list with
@@ -19,11 +17,17 @@ let repeatUntilEmpty f list =
         | l, rest -> repeatUntilEmptyRec (l::acc) rest
     repeatUntilEmptyRec [] list
 
-let solve list =
+let solvePart1 list =
+    list
+    |> List.map (List.sumBy int)
+    |> List.max
+
+let solvePart2 list =
     list
     |> List.map (List.sumBy int)
     |> List.sortDescending
     |> List.take 3
     |> List.sum
 
-File.ReadLines("ElfCalories.txt") |> Seq.toList |>  repeatUntilEmpty splitSeq |> solve |> printfn "%A"
+File.ReadLines("ElfCalories.txt") |> Seq.toList |>  repeatUntilEmpty splitSeq |> solvePart1 |> printfn "%A"
+//File.ReadLines("ElfCalories.txt") |> Seq.toList |>  repeatUntilEmpty splitSeq |> solvePart1 |> printfn "%A"
