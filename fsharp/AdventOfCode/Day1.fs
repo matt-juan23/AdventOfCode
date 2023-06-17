@@ -1,6 +1,5 @@
-﻿open System.IO
-
-System.Environment.CurrentDirectory <- __SOURCE_DIRECTORY__
+﻿module Day1
+open System.IO
 
 let splitSeq list = 
     let rec splitSeqRec acc list = 
@@ -29,7 +28,7 @@ let solvePart2 list =
     |> List.take 3
     |> List.sum
 
-File.ReadLines("ElfCalories.txt") |> Seq.toList |>  repeatUntilEmpty splitSeq |> solvePart1 |> printfn "%A"
+//File.ReadLines("ElfCalories.txt") |> Seq.toList |>  repeatUntilEmpty splitSeq |> solvePart1 |> printfn "%A"
 
 let calorieAcc state input = 
     match input, state with
@@ -41,4 +40,6 @@ let solvePart1Better = List.max
 
 let (solvePart2Better:int list -> int) = List.sortDescending >> List.take 3 >> List.sum
 
-File.ReadLines("ElfCalories.txt") |> Seq.toList |> List.fold calorieAcc [] |> solvePart1Better |> printfn "%A"
+//File.ReadLines("ElfCalories.txt") |> Seq.toList |> List.fold calorieAcc [] |> solvePart1Better |> printfn "%A"
+
+let solve filename = File.ReadLines(filename) |> Seq.toList |> List.fold calorieAcc [] |> solvePart1Better |> printfn "%A"

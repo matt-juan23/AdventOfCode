@@ -6,10 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Day1\ElfCalories.txt" />
-    <Compile Include="Day1\Program.fs" />
+    <Content Include="InputFiles\Day1.txt" />
+    <Compile Include="Day1.fs" />
+    <Compile Include="Program.fs" />
   </ItemGroup>
-
-  <ItemGroup />
 
 </Project>
